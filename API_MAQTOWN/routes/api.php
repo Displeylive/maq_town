@@ -122,6 +122,6 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/edita_proveedor_contacto', [ProveedorContactoController::class, 'EditaProveedorContacto'])->middleware('permiso:editar_proveedor_contacto');
     Route::post('/elimina_proveedor_contacto', [ProveedorContactoController::class, 'EliminaProveedorContacto'])->middleware('permiso:eliminar_proveedor_contacto');
 
-    // asta qui deveria estar listo 
+
 
 });

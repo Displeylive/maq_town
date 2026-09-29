@@ -200,6 +200,33 @@ Table detalle_venta {
 
 }
 
+Table cajas {
+  idcajas int
+  sucursales_idSucursales int [not null, ref: > sucursales.idSucursales] 
+
+  usuario_idusuario int [not null, ref: > usuario.idusuario] 
+
+}
+
+Table movimineto_caja {
+  idmovimineto_caja int
+
+}
+
+Table detalle_movimineto_caja {
+  iddetalle_movimineto_caja int
 
 
+}
+
+Table detalle_arqueo {
+  iddetalle_arqueo int
+ 	valor_denominacion varchar(45)
+  cantidad decimal(12,2)
+  sub_total decimal(12,2) 
+  movimiento_caja_idmovimiento_caja int(11) [not null, ref: > movimineto_caja.idmovimineto_caja]
+  echa_registro datetime
+  fecha_mod datetime
+
+}
 

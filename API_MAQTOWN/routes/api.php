@@ -18,8 +18,7 @@ use App\Http\Controllers\VentaController;
 use App\Http\Controllers\DetalleVentaController;
 use App\Http\Controllers\MovimientoInventarioController;
 use App\Http\Controllers\PrecioCompraProductoController;
-
-
+use App\Http\Controllers\CajaController;
 
 
 Route::post('/registroUsuario', [AuthController::class,'registroUsuario']);
@@ -124,5 +123,15 @@ Route::middleware('auth:sanctum')->group(function () {
 
     //asta qui deveria estar todo bien 
     //asta qui deveria estar todo bien
+
+
+    Route::post('/reg_caja', [CajaController::class, 'RegistraCaja']);
+    Route::post('/lista_caja', [CajaController::class, 'ListaCaja']);
+    Route::post('/edita_caja', [CajaController::class, 'EditaCaja']);
+    Route::post('/desactiva_caja', [CajaController::class, 'DesactivaCaja']);
+    Route::post('/activa_caja', [CajaController::class, 'ActivaCaja']);
+
+
+
 
 });

@@ -19,6 +19,7 @@ use App\Http\Controllers\DetalleVentaController;
 use App\Http\Controllers\MovimientoInventarioController;
 use App\Http\Controllers\PrecioCompraProductoController;
 use App\Http\Controllers\CajaController;
+use App\Http\Controllers\MovimientoCajaController;
 
 
 Route::post('/registroUsuario', [AuthController::class,'registroUsuario']);
@@ -124,6 +125,7 @@ Route::middleware('auth:sanctum')->group(function () {
     //asta qui deveria estar todo bien 
     //asta qui deveria estar todo bien
 
+    //cajas
 
     Route::post('/reg_caja', [CajaController::class, 'RegistraCaja']);
     Route::post('/lista_caja', [CajaController::class, 'ListaCaja']);
@@ -131,7 +133,13 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/desactiva_caja', [CajaController::class, 'DesactivaCaja']);
     Route::post('/activa_caja', [CajaController::class, 'ActivaCaja']);
 
-
+    // movimiento_caja
+    Route::post('/abre_movimiento_caja', [MovimientoCajaController::class, 'AbreMovimientoCaja']);
+    Route::post('/cierra_movimiento_caja', [MovimientoCajaController::class, 'CierraMovimientoCaja']);
+    Route::post('/resumen_movimiento_caja', [MovimientoCajaController::class, 'ResumenMovimientoCaja']);
+    Route::post('/lista_movimiento_caja', [MovimientoCajaController::class, 'ListaMovimientoCaja']);
+    Route::post('/sesion_abierta_usuario', [MovimientoCajaController::class, 'SesionAbiertaUsuario']);
 
 
 });
+

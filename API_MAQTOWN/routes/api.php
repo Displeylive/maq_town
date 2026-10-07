@@ -21,6 +21,8 @@ use App\Http\Controllers\PrecioCompraProductoController;
 use App\Http\Controllers\CajaController;
 use App\Http\Controllers\MovimientoCajaController;
 
+use App\Http\Controllers\DetalleArqueoController;
+use App\Http\Controllers\DetalleMovimientoCajaController;
 
 Route::post('/registroUsuario', [AuthController::class,'registroUsuario']);
 Route::post('/login', [AuthController::class,'login']);
@@ -139,6 +141,13 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/resumen_movimiento_caja', [MovimientoCajaController::class, 'ResumenMovimientoCaja']);
     Route::post('/lista_movimiento_caja', [MovimientoCajaController::class, 'ListaMovimientoCaja']);
     Route::post('/sesion_abierta_usuario', [MovimientoCajaController::class, 'SesionAbiertaUsuario']);
+
+    // detalle_movimiento_caja y arqueo
+    Route::post('/reg_gasto', [DetalleMovimientoCajaController::class, 'RegistraGasto']);
+    Route::post('/edita_gasto', [DetalleMovimientoCajaController::class, 'EditaGasto']);
+    Route::post('/elimina_gasto', [DetalleMovimientoCajaController::class, 'EliminaGasto']);
+    Route::post('/lista_detalle_movimiento_caja', [DetalleMovimientoCajaController::class, 'ListaDetalleMovimientoCaja']);
+    Route::post('/lista_detalle_arqueo', [DetalleArqueoController::class, 'ListaDetalleArqueo']);
 
 
 });

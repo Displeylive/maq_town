@@ -21,9 +21,11 @@ class VentaController extends Controller
             $datos = $request->validate([
                 'tipo_venta'                     => 'required|string|in:mayor,menor',
                 'tipo_pago'                      => 'required|string|in:contado,credito',
-                'metodo_pago'                    => 'required|string|max:45',
+                //'metodo_pago'                    => 'required|string|max:45',
+                'metodo_pago'                    => 'required|string|in:efectivo,qr',
                 'metodo_entrega'                 => 'required|string|max:150',
-                'estado_venta'                   => 'required|string|in:pendiente,completada,anulada',
+               // 'estado_venta'                   => 'required|string|in:pendiente,completada,anulada',
+                'estado_venta'                   => 'required|string|in:pendiente,completada',
                 'sucursales_idsucursales'        => 'required|integer',
                 'clientes_idclientes'            => 'required|integer',
                 'productos'                              => 'required|array|min:1',
@@ -105,7 +107,8 @@ class VentaController extends Controller
             $datos = $request->validate([
                 'idventas'          => 'required|integer',
                 'tipo_venta'        => 'nullable|string|in:mayor,menor',
-                'metodo_pago'       => 'nullable|string|max:45',
+                //'metodo_pago'       => 'nullable|string|max:45',
+                'metodo_pago'       => 'nullable|string|in:efectivo,qr',
                 'metodo_entrega'    => 'nullable|string|max:150',
                 'estado_venta'      => 'nullable|string|in:pendiente,completada',
             ]);

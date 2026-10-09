@@ -92,9 +92,19 @@ class VentaService
             $parametros['estado_venta']
         ]);
     }
-
+/*
     public function ServAnulaVenta($idUsuario, $id){
         return DB::select('CALL sp_anulaVenta(?, ?)', [$idUsuario, $id]);
     }
+*/
+    public function ServAnulaVenta($idUsuario, $id){
+
+    return DB::transaction(function () use ($idUsuario, $id) {
+
+        $resultado = DB::select('CALL sp_anulaVenta(?, ?)', [$idUsuario, $id]);
+
+        return $resultado[0];
+    });
+}
 
 }

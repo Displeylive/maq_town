@@ -23,7 +23,12 @@ class DetalleVentaService
 
             DB::select('CALL sp_actualizaTotalVenta(?)', [$request['idventas']]);
 
-            $ventaAjustada = DB::select('CALL sp_ajustaSaldoClientePorVenta(?, ?)', [
+            DB::select('CALL sp_ajustaSaldoClientePorVenta(?, ?)', [
+                $request['idventas'],
+                $totalAnterior
+            ]);
+
+            $ventaAjustada = DB::select('CALL sp_ajustaCajaPorVenta(?, ?)', [
                 $request['idventas'],
                 $totalAnterior
             ]);
@@ -64,7 +69,12 @@ class DetalleVentaService
 
             DB::select('CALL sp_actualizaTotalVenta(?)', [$idVenta]);
 
-            $ventaAjustada = DB::select('CALL sp_ajustaSaldoClientePorVenta(?, ?)', [
+            DB::select('CALL sp_ajustaSaldoClientePorVenta(?, ?)', [
+                $idVenta,
+                $totalAnterior
+            ]);
+
+            $ventaAjustada = DB::select('CALL sp_ajustaCajaPorVenta(?, ?)', [
                 $idVenta,
                 $totalAnterior
             ]);
@@ -87,7 +97,12 @@ class DetalleVentaService
 
             DB::select('CALL sp_actualizaTotalVenta(?)', [$idVenta]);
 
-            $ventaAjustada = DB::select('CALL sp_ajustaSaldoClientePorVenta(?, ?)', [
+            DB::select('CALL sp_ajustaSaldoClientePorVenta(?, ?)', [
+                $idVenta,
+                $totalAnterior
+            ]);
+
+            $ventaAjustada = DB::select('CALL sp_ajustaCajaPorVenta(?, ?)', [
                 $idVenta,
                 $totalAnterior
             ]);
